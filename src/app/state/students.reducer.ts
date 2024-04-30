@@ -12,7 +12,6 @@ export const initState: ReadonlyArray<StudentsRecords> = [{
     courseName: "Match",
     date: "14-11-1983",
     state: "Rajasthan",
-    subjects: "Maths",
     street: "5th street",
     email: "deepak@example.com",
     phone: "123123123",

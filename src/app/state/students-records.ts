@@ -8,7 +8,6 @@ export interface StudentsRecords {
     courseName: string;
     date: string;
     state: string;
-    subjects: string;
     street: string;
     email: string;
     phone: string;
