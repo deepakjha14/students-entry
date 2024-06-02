@@ -1,0 +1,28 @@
+.container {    
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(90deg, #fdcd3b 60%, #ffed4b 40%);
+
+    &__login-box {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 160px;
+    }
+}
+
+mat-card {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    padding: 16px;
+}
+
+.full-width {
+    width: 100%;
+}

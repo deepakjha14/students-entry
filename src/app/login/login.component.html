@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="container__login-box">
+        <div class="container__login-box">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="./assets/ngrx.svg" style="height: 240px; border-radius: 50%; padding: 16px;"/>
+                <h2>Learn NGRX 17.x</h2>
+                <p>With JSGigs and Deepak</p>
+                <p>Here you will learn best practices to implement RxJS 17.x</p>
+                <p>and best practices around NGRX and Angular 17</p>
+                <p>and Angular Material with Material UI</p>
+            </div>
+            <div>
+                <mat-card>
+                    <img src="./assets/JSGigs.png" style="height: 120px; border-radius: 50%; padding: 16px;"/>
+                    <h2>Login</h2>
+                    <form [formGroup]="loginForm">
+                        Username
+                        <mat-form-field class="full-width">
+                            <mat-label>Username</mat-label>
+                            <input matInput type="text" formControlName="username">
+                        </mat-form-field>
+                    
+                        Password
+                        <mat-form-field class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password">
+                        </mat-form-field>
+                    </form>
+                    <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="onClickLogin()">Login</button>
+                </mat-card>
+            </div>
+    </div>
+</div>
