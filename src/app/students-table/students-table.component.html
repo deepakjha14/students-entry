@@ -1,4 +1,8 @@
 <div class="container">
+    <mat-form-field>
+        <mat-label>Students Name/ID</mat-label>
+        <input matInput placeholder="Filter Students" [formControl]="studentsControl">
+    </mat-form-field>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>Name</th>

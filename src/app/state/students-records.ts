@@ -1,15 +1,8 @@
-export interface StudentsRecords {
-    name: string;
-    city: string;
-    country: string;
-    subject: string;
-    passportDeclaration: string;
-    fitnessDeclaration: string;
-    courseName: string;
-    date: string;
-    state: string;
-    street: string;
-    email: string;
-    phone: string;
-    postalCode: number;
-}
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+import { StudentsRecords } from './students-records.model';
+
+export interface StudentsRecordsState extends EntityState<StudentsRecords> {};
+
+export const adapter: EntityAdapter<StudentsRecords> = createEntityAdapter<StudentsRecords>();
+
+export const initialState: StudentsRecordsState = adapter.getInitialState();

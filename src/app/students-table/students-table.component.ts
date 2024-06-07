@@ -1,21 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { Store } from "@ngrx/store";
 import { Observable, Subject} from "rxjs";
-import { StudentsRecords } from "../state/students-records";
-import { AppState, selectAll } from "../state/students-selectors";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+
+import { StudentsRecords } from "../state/students-records.model";
+import { AppState, selectAllStudents, selectStudentById } from "../state/students-selectors";
 import * as Actions from "../state/students-records.action";
 
 @Component({
     selector: 'app-students-table',
     standalone: true,
-    imports: [ MatTableModule ],
+    imports: [ MatTableModule, MatInputModule, MatFormFieldModule, FormsModule, ReactiveFormsModule ],
     templateUrl: './students-table.component.html',
     styleUrl: './students-table.component.scss'
 })
 export class StudentsTableComponent implements OnInit {
     dataSource: any = [];
-    dataSource$: Observable<StudentsRecords[]> = this.store.select(selectAll);
+    studentsControl: FormControl = new FormControl();
+    dataSource$: Observable<StudentsRecords[]> = this.store.select(selectAllStudents);
     displayColumns: string[] = ['name', 'city', 'country', 'subject', 'passportDeclaration', 'fitnessDeclaration', 'courseName', 'date', 'state', 'street', 'email', 'phone', 'postalCode'];
     constructor(private store: Store<AppState>) {
         this.store.dispatch(Actions.callStudentsRecordsApi());
@@ -24,8 +30,20 @@ export class StudentsTableComponent implements OnInit {
     ngOnInit(): void {
         this.dataSource$.subscribe(
             (res: any) => {
-                this.dataSource = res?.studentsRecords;
+                this.dataSource = res;
             } 
+        );
+
+        this.studentsControl.valueChanges.subscribe(
+            (value: number) => {
+                const studentsRecord = this.store.select(selectStudentById(value));
+                studentsRecord.subscribe(
+                    (res: any) => {
+                        this.dataSource = [res];
+                        console.log(res, "Selected Record");
+                    }
+                );
+            }
         );
     }
 }
