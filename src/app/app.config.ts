@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -11,6 +11,7 @@ import { provideRouterStore, routerReducer } from "@ngrx/router-store";
 import { routes } from './app.routes';
 import { studentsReducer } from "./state/students.reducer";
 import { StudentsRecordsEffects } from "./state/students-records.effects";
+import { MatNativeDateModule } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,6 +27,7 @@ export const appConfig: ApplicationConfig = {
         reducer: studentsReducer
     }),
     provideStoreDevtools({ maxAge: 25, logOnly: false }),
-    provideRouterStore()
+    provideRouterStore(),
+    importProvidersFrom(MatNativeDateModule),
 ]
 };

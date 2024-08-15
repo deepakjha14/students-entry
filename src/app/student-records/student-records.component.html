@@ -1,0 +1,107 @@
+<div style="padding: 16px; display: flex; justify-content: center;">
+    <mat-card style="width: fit-content">
+        <form class="student-entry-form">
+            <div class="student-entry-form__form-row">
+                Full Name
+                <div class="student-entry-form__form-row--input-section">
+                    <mat-form-field class="form-group full-width">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text" name="name" [formControl]="nameControl" type="text" placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="student-entry-form__form-row">
+                Origin
+                <div class="student-entry-form__form-row--input-section">
+                    <mat-form-field class="form-group">
+                        <mat-label>Country</mat-label>
+                        <input matInput type="text" name="country" [formControl]="countryControl" type="text" placeholder="Country">
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <mat-label>State</mat-label>
+                        <input matInput type="text" name="State" [formControl]="stateControl" type="text" placeholder="State">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="student-entry-form__form-row">
+                Declaration
+                <div  class="student-entry-form__form-row--input-section">
+                    <mat-form-field class="form-group">
+                        <mat-label>Passport Declaration</mat-label>
+                        <input matInput type="text" name="country" [formControl]="passportDeclarationControl" type="text" placeholder="Passport Declaration">
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <mat-label>Fitness Declaration</mat-label>
+                        <input matInput type="text" name="State" [formControl]="fitnessDeclarationControl" type="text" placeholder="Fitness Declaration">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="student-entry-form__form-row">
+                Course Name
+                <div class="student-entry-form__form-row--input-section">
+                    <mat-form-field class="form-group">
+                        <mat-label>Course Name</mat-label>
+                        <input matInput type="text" name="courseName" [formControl]="courseNameControl" type="text" placeholder="Course Name">
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <mat-label>Subjects</mat-label>
+                        <input matInput type="text" name="subjects" [formControl]="subjectsControl" type="text" placeholder="Subject">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div  class="student-entry-form__form-row">
+                Birth Date
+                <div class="student-entry-form__form-row--input-section">
+                    <mat-form-field>
+                        <mat-label>Birth Date</mat-label>
+                        <input matInput [matDatepicker]="picker"  name="birthDate" [formControl]="dateControl" placeholder="Birth Date">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="student-entry-form__form-row">
+                Present Address
+                <div class="student-entry-form__form-row--input-address">
+                    <mat-form-field class="form-group">
+                        <mat-label>Street Address</mat-label>
+                        <input matInput [formControl]="streetControl" type="text" placeholder="Street Address"/>
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <mat-label>Address 2</mat-label>
+                        <input matInput [formControl]="address2Control" type="text" placeholder="Address 2"/>
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <mat-label>Email Address</mat-label>
+                        <input matInput [formControl]="emailControl" type="text" placeholder="Email"/>
+                    </mat-form-field>
+                </div>
+                <div class="student-entry-form__form-row--input-section">
+                    <mat-form-field class="form-group">
+                        <mat-label>State</mat-label>
+                        <input matInput disabled class="field-mat-label"  [value]="stateControl.value" type="text"/>
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <mat-label>City</mat-label>
+                        <input matInput [formControl]="cityControl" type="text"/>
+                    </mat-form-field>
+                </div>
+                <div class="student-entry-form__form-row--input-section">
+                    <mat-form-field class="form-group">
+                        <label>Postal Code</label>
+                        <input matInput [formControl]="zipControl" placeholder="Postal code"/>
+                    </mat-form-field>
+                    <mat-form-field class="form-group">
+                        <label>Country</label>
+                        <input matInput disabled class="field-label" [value]="countryControl.value" >
+                    </mat-form-field>
+                </div>
+                <div class="student-entry-form__form-row--input-buttons">
+                    <button type="submit" color="primary" [disabled]="studentDetailsForm.status === 'INVALID'" mat-button>Submit</button>
+                    <button type="submit" color="accent" mat-button>Cancel</button>
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

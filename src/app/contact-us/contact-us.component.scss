@@ -1,0 +1,38 @@
+.row {
+    display: flex;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .col:last-child {
+    margin-right: 0;
+  }
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.message-form {
+    margin: 16px;
+    width: 476px;
+    display: flex;
+    flex-direction: column;
+
+    &__content-form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.jsgigs-img {
+  height: 180px;
+  border-radius: 50%;
+}
