@@ -36,13 +36,23 @@ export class StudentsTableComponent implements OnInit {
 
         this.studentsControl.valueChanges.subscribe(
             (value: number) => {
-                const studentsRecord = this.store.select(selectStudentById(value));
-                studentsRecord.subscribe(
-                    (res: any) => {
-                        this.dataSource = [res];
-                        console.log(res, "Selected Record");
-                    }
-                );
+                if (!!value) {
+                    const studentsRecord = this.store.select(selectStudentById(value));
+                    studentsRecord.subscribe(
+                        (res: any) => {
+                            this.dataSource = [res];
+                            console.log(res, "Selected Record");
+                        }
+                    );
+                } else {
+                    const studentsRecords = this.store.select(selectAllStudents);
+                    studentsRecords.subscribe(
+                        (res: any) => {
+                            this.dataSource = res;
+                            console.log(res, "All Selected Students");
+                        }
+                    );
+                }
             }
         );
     }

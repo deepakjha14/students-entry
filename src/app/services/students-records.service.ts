@@ -11,6 +11,6 @@ export class StudentsRecordsService {
     ) {}
 
     getStudentsRecords() {
-        return this.http.get<Array<StudentsRecords>>("http://localhost:3000/api/studentsRecords");
+        return this.http.get<Array<StudentsRecords>>("/api/studentsRecords");
     }
 }
